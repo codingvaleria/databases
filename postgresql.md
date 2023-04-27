@@ -40,18 +40,18 @@ DROP DATABASE database_name;
 ## Create Tables
 CREATE TABLE table_name(
     Column name + data type + constraints if any
-)
+);
 
 ## Drop Tables
-DROP TABLE table_name
+DROP TABLE table_name;
 
 ## View Tables
 \d - view all tables
 \d table_name - view particular table
 
 # View Contents of a table
-- SELECT * FROM table_name
-- SELECT column_name FROM table_name
+- SELECT * FROM table_name;
+- SELECT column_name FROM table_name;
 
 
 # Postgress Datatypes 
@@ -63,5 +63,61 @@ INSERT INTO table_name (
     column2,
     column3,
 ) 
-VALUES('column1', column2, 'column3'....)
+VALUES('column1', 'column2', 'column3'....);
 
+# Sort Data
+SELECT * FROM table_name ORDER BY column_name ASC;
+
+to combine multiple columns
+SELECT * FROM table_name ORDER BY column_nam1, column _name2 DESC;
+
+# Distinct
+- used to find unique details(non-duplicates) from a db.
+
+SELECT DISTINCT column_name FROM table_name ORDER BY column_name;
+
+# Where Clause and AND and OR
+- Where allows to filter data based on condition
+SELECT * FROM table_name WHERE column_name = 'some text';
+
+- And - to add conditions
+SELECT * FROM table_name WHERE column_name = 'some text' AND column_name = 'some text';
+
+SELECT * FROM table_name WHERE column_name = 'some text' AND (column_name = 'some text' OR column_name = 'some text');
+
+# Comparison Operators
+- <, >, = <=, =>  <>(not equal)
+
+## Arithmetic
+
+# LIMIT, Offset & Fetch
+- Limit ; to limit a certain conditon
+
+##### Limit
+SELECT * FROM table_name LIMIT no;
+
+#### Offset 
+ Dictates the number of rows to skip from the beginning of the returned data before presenting the results.
+
+SELECT * FROM table_name OFFSET 15 LIMIT 10;
+
+#### Fetch 
+- Used as an alternative to limit
+SELECT * FROM table_name OFFSET 5 FETCH FIRST 5 ROW ONLY;
+
+# IN
+Returns a query matching an array of keywords given.
+
+SELECT * FROM table_name WHERE country_of_birth IN ('China', 'Brazil', 'France');
+
+# Between
+- To select data within a range.
+
+## Like and ilike
+- Used to match text values against a pattern using wild cards
+SELECT * FROM person WHERE email LIKE '%@google.com';
+
+- ilike is case insensitive
+
+# GROUP BY
+- allows to group based on a column and gives their quantity
